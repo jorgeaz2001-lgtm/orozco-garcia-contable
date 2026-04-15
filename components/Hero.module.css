@@ -10,6 +10,9 @@
   min-height: clamp(600px, 92svh, 900px);
   background: #0a1529;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cinematicVideo {
@@ -44,14 +47,13 @@
 }
 
 .cinematicContent {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  z-index: 3;
   width: min(900px, 92vw);
   text-align: center;
   color: #fff;
   opacity: calc(1 - var(--scroll-progress, 0) * 1.1);
+  transform: translateY(calc(var(--scroll-progress, 0) * 24px));
   transition: opacity 0.22s linear, transform 0.24s ease-out;
 }
 
@@ -131,7 +133,6 @@
   }
 
   .cinematicContent {
-    top: 50%;
     padding: 0 20px;
   }
 
