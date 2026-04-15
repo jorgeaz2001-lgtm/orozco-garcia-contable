@@ -1,21 +1,55 @@
 "use client";
 
+import { useEffect, useState, type CSSProperties } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, ArrowDown } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const distance = Math.max(window.innerHeight * 0.75, 1);
+      const rawProgress = window.scrollY / distance;
+      const next = Math.min(Math.max(rawProgress, 0), 0.9);
+      setScrollProgress(next);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const cinematicStyle = {
+    "--scroll-progress": scrollProgress,
+  } as CSSProperties;
+
   return (
-    <section id="inicio" className={styles.hero}>
-      <div className={styles.overlay} />
-      <div className={`container ${styles.content}`}>
+    <section id="inicio" className={styles.hero} style={cinematicStyle}>
+      <div className={styles.cinematicFrame}>
+        <video
+          className={styles.cinematicVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          controls={false}
+          preload="metadata"
+
+        >
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
+
+        <div className={styles.overlay} />
+        <div className={styles.whiteWash} />
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className={styles.text}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className={styles.cinematicContent}
         >
-          <span className={styles.badge}>Servicio en Piedras Negras y todo México</span>
           <h1 className={styles.heading}>
             Soluciones integrales de <strong>Contabilidad</strong>,{" "}
             <strong>Impuestos</strong> y <strong>Planeación Fiscal</strong>
@@ -34,17 +68,16 @@ export default function Hero() {
               <Phone size={18} />
               Agenda tu asesoría
             </a>
-            <a href="mailto:contacto@orozcogarcia.com" className={styles.btnSecondary}>
+            <a
+              href="mailto:contacto@orozcogarcia.com"
+              className={styles.btnSecondary}
+            >
               <Mail size={18} />
               contacto@orozcogarcia.com
             </a>
           </div>
         </motion.div>
       </div>
-
-      <a href="#servicios" className={styles.scrollDown} aria-label="Scroll to services">
-        <ArrowDown size={20} />
-      </a>
     </section>
   );
 }
