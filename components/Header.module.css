@@ -1,0 +1,121 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(242, 240, 233, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.desktopNav {
+  display: none;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--foreground);
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--primary-light);
+}
+
+.cta {
+  display: none;
+  padding: 0.6rem 1.25rem;
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: background 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--primary-light);
+}
+
+.burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.mobileMenu {
+  overflow: hidden;
+  background: rgba(242, 240, 233, 0.98);
+  border-bottom: 1px solid var(--border);
+}
+
+.mobileNav {
+  list-style: none;
+  padding: 1rem 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileLink {
+  display: block;
+  padding: 0.75rem 0;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--foreground);
+  border-bottom: 1px solid var(--border);
+}
+
+.mobileCta {
+  display: block;
+  margin-top: 0.75rem;
+  padding: 0.875rem;
+  text-align: center;
+  background: var(--whatsapp);
+  color: #fff;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .desktopNav {
+    display: flex;
+  }
+  .cta {
+    display: inline-flex;
+  }
+  .burger {
+    display: none;
+  }
+  .mobileMenu {
+    display: none !important;
+  }
+}

@@ -1,0 +1,73 @@
+.logoWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  transform-origin: left center;
+  color: var(--primary);
+}
+
+.light {
+  color: #fff;
+}
+
+.monogramBox {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  color: var(--primary);
+}
+
+.light .svg {
+  color: #fff;
+}
+
+.monogram {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.08em;
+  color: var(--background);
+  padding-top: 2px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.brand {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+}
+
+.light .brand {
+  color: #fff;
+}
+
+.tagline {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-top: 2px;
+}
+
+.light .tagline {
+  color: rgba(255, 255, 255, 0.75);
+}
