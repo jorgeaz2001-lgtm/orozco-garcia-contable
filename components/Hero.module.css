@@ -46,8 +46,8 @@
 .cinematicContent {
   position: absolute;
   left: 50%;
-  bottom: clamp(48px, 8vw, 80px);
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: min(900px, 92vw);
   text-align: center;
   color: #fff;
@@ -131,7 +131,7 @@
   }
 
   .cinematicContent {
-    bottom: 72px;
+    top: 50%;
     padding: 0 20px;
   }
 
